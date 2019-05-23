@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.event.KeyEvent;
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -75,16 +77,16 @@ public final class Controller implements IController {
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case English:
-				this.model.loadHelloWorld("GB");
+				this.model.loadHelloWorld("UP");
 				break;
 			case Francais:
-				this.model.loadHelloWorld("FR");
+				this.model.loadHelloWorld("DW");
 				break;
 			case Deutsch:
-				this.model.loadHelloWorld("DE");
+				this.model.loadHelloWorld("LF");
 				break;
 			case Indonesia:
-				this.model.loadHelloWorld("ID");
+				this.model.loadHelloWorld("RG");
 				break;
 			default:
 				break;
