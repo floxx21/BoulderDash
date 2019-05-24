@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
@@ -7,6 +8,11 @@ import java.util.Observer;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.font.TextAttribute;
+import java.text.*;
+import javax.swing.*;
+
 
 /**
  * The Class ViewPanel.
@@ -67,7 +73,8 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		//graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
-		graphics.drawString("tu pu", 10, 20);
+		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
+
 	}
+	
 }
