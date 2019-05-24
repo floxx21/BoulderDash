@@ -1,17 +1,18 @@
 package view;
 
-import java.awt.Font;
+import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import java.awt.*;
-import java.awt.font.TextAttribute;
-import java.text.*;
-import javax.swing.*;
 
 
 /**
@@ -25,6 +26,8 @@ class ViewPanel extends JPanel implements Observer {
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
+	
+	private BufferedImage img, img2;
 
 	/**
 	 * Instantiates a new view panel.
@@ -64,11 +67,7 @@ class ViewPanel extends JPanel implements Observer {
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
-	public ImageIcon mon_image ;
 
-	public void prout() {
-		mon_image = new ImageIcon ("/view/image/rock.png");
-	}
 	/*
 	 * (non-Javadoc)
 	 *
@@ -76,10 +75,21 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
+		try {
+            img = ImageIO.read(new File("D:\\Images\\playersheet.png"));
+            img2 = ImageIO.read(new File("D:\\Images\\diamond1.png"));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
-		graphics.drawImage(mon_image.getImage(), 1,1, null);
-
+		
+		if (img != null) {
+			graphics.drawImage(img, 0, 0, 16,16, this);
+        }
+        if (img2 != null) {
+        	graphics.drawImage(img2, 16, 0, 16,16, this);
+        }
 	}
 	
 }
