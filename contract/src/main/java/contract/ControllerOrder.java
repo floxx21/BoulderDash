@@ -8,11 +8,13 @@ package contract;
 public enum ControllerOrder {
 
 	/** The English. */
-	Up,
+	Map1,
 	/** The French. */
-	Down,
+	Map2,
 	/** The Deutch. */
-	Left,
+	Map3,
 	/** The Indonesia. */
-	Right
+	Map4,
+	
+	Map5,
 }

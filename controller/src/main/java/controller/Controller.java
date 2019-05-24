@@ -76,17 +76,20 @@ public final class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case Up:
+			case Map1:
 				this.model.loadHelloWorld("L1");
 				break;
-			case Down:
+			case Map2:
 				this.model.loadHelloWorld("L2");
 				break;
-			case Left:
+			case Map3:
 				this.model.loadHelloWorld("L3");
 				break;
-			case Right:
+			case Map4:
 				this.model.loadHelloWorld("L4");
+				break;
+			case Map5:
+				this.model.loadHelloWorld("L5");
 				break;
 			default:
 				break;
