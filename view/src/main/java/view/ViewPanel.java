@@ -64,7 +64,11 @@ class ViewPanel extends JPanel implements Observer {
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
+	public ImageIcon mon_image ;
 
+	public void prout() {
+		mon_image = new ImageIcon ("/view/image/rock.png");
+	}
 	/*
 	 * (non-Javadoc)
 	 *
@@ -74,7 +78,7 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
-		graphics.drawImage(img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, observer)
+		graphics.drawImage(mon_image.getImage(), 1,1, null);
 
 	}
 	

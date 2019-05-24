@@ -2,7 +2,7 @@ package entity;
 
 import java.awt.Graphics;
 
-import Assets ;
+import view.Assets ;
 
 
 
