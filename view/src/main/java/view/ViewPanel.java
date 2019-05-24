@@ -75,7 +75,7 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		try {
+		/*try {
             img = ImageIO.read(new File("D:\\Images\\playersheet.png"));
             img2 = ImageIO.read(new File("D:\\Images\\diamond1.png"));
         } catch (IOException ex) {
@@ -89,7 +89,16 @@ class ViewPanel extends JPanel implements Observer {
         }
         if (img2 != null) {
         	graphics.drawImage(img2, 16, 0, 16,16, this);
-        }
+        }*/
+	   
+	        graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+	        String[] message =this.getViewFrame().getModel().getHelloWorld().getMessage().split(";");
+	        int hauteur = 16;
+	        for (String msg : message)
+	        { 
+	            graphics.drawString(msg, 1,hauteur);
+	            hauteur+=16;
+	        }  
 	}
 	
 }

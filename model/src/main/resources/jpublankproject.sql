@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.5.5.1
 -- http://www.phpmyadmin.net
 --
@@ -31,7 +31,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `helloworldById` (IN `p_id` INT)  RE
     SQL SECURITY INVOKER
 SELECT * FROM helloworld WHERE id = p_id$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `HelloworldByCode` (IN `p_code` VARCHAR(2))  READS SQL DATA
+CREATE DEFINER=`root`@`localhost` PROCEDURE `HelloworldByCode` (IN `p_code` VARCHAR(10))  READS SQL DATA
     SQL SECURITY INVOKER
 SELECT * FROM jpublankproject.helloworld where `code`=p_code$$
 
