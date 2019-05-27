@@ -40,7 +40,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("BoulderDash insh tu marches!!!!");
+		this.view.printMessage("Welcome to BoulderDash");
 	}
 
 	/**
@@ -104,7 +104,6 @@ public final class Controller implements IController {
 				
 				break;
 			default:
-				this.model.loadHelloWorld("L1");
 				break;
 		}
 	}
