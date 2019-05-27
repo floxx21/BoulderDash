@@ -1,5 +1,5 @@
 package entity;
 
-public class Exit {
+public class Exit extends StaticEntity{
 
 }

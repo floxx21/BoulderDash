@@ -1,5 +1,5 @@
 package entity;
 
-public class Diamond {
+public class Diamond extends StaticEntity{
 
 }
