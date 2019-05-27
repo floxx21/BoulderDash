@@ -104,6 +104,7 @@ public final class Controller implements IController {
 				
 				break;
 			default:
+				this.model.loadHelloWorld("L1");
 				break;
 		}
 	}

@@ -1,7 +1,7 @@
 package model;
 
 
-import controller.BoulderdashController;
+import controller.Controller;
 import view.GameCamera;
 
 public class Handler {
