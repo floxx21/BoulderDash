@@ -91,6 +91,18 @@ public final class Controller implements IController {
 			case Map5:
 				this.model.loadHelloWorld("L5");
 				break;
+			case Up:
+				
+				break;
+			case Down:
+				
+				break;
+			case Left:
+				
+				break;
+			case Right:
+				
+				break;
 			default:
 				break;
 		}

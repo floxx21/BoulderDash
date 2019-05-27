@@ -17,4 +17,12 @@ public enum ControllerOrder {
 	Map4,
 	
 	Map5,
+	
+	Up,
+	
+	Down,
+	
+	Left,
+	
+	Right
 }
