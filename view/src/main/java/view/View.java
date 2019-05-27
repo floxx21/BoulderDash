@@ -37,7 +37,7 @@ public final class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+	/*protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
 			case KeyEvent.VK_NUMPAD1:
 				return ControllerOrder.Map1;
@@ -60,7 +60,7 @@ public final class View implements IView, Runnable {
 			default:
 				return null;
 		}
-	}
+	}*/
 
 	/*
 	 * (non-Javadoc)
