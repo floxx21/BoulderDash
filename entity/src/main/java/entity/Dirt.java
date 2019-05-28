@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 public class Dirt extends Entity {
 
 	
-	private final String IMAGE_PATH="D:\\CESI\\image\\dirt.png";
+	private final String IMAGE_PATH="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\dirt.png";
 	
 	public Dirt (final int x, final int y) {
 		this.setX(x);

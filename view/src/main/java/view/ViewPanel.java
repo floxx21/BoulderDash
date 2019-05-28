@@ -16,6 +16,7 @@ import entity.Diamond;
 import entity.Dirt;
 import entity.Enemy;
 import entity.Exit;
+import entity.Player;
 import entity.Wall;
 
 /**
@@ -25,8 +26,8 @@ import entity.Wall;
  */
 class ViewPanel extends JPanel implements Observer {
 
-	public static int X;
-	public static int Y;
+	/*public static int X;
+	public static int Y;*/
 	
 	/** The view frame. */
 	private ViewFrame					viewFrame;
@@ -73,7 +74,7 @@ class ViewPanel extends JPanel implements Observer {
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 *
@@ -91,7 +92,7 @@ class ViewPanel extends JPanel implements Observer {
         	char[] splitMsg = msg.toCharArray();
         	for (int x = 0; x < splitMsg.length; x++) {
                 map[x][y] = splitMsg[x];
-                System.out.println(map[x][y]);
+                //System.out.println(map[x][y]);
         		switch(splitMsg[x]) {
         		case 48:
 						graphics.drawImage(new Dirt(x*16, hauteur).getImg(), x*16, hauteur, null);
@@ -107,12 +108,11 @@ class ViewPanel extends JPanel implements Observer {
         			break;
         		case 52:
         			try {
-						Image img = ImageIO.read(new File("D:\\CESI\\image\\down.png"));
-						graphics.drawImage(img, x*16, hauteur, null);
-						X = x*16;
-						Y = hauteur;
+						Image img = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png"));
+						Player.x = x*16;
+						Player.y = hauteur;
+						graphics.drawImage(img, Player.x, Player.y, null);
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 						
 					}
@@ -131,32 +131,6 @@ class ViewPanel extends JPanel implements Observer {
          //   graphics.drawString(msg, 1,hauteur);
             hauteur+=16;
         }  
-
-	/*	try {
-            img = ImageIO.read(new File("D:\\Images\\playersheet.png"));
-            img2 = ImageIO.read(new File("D:\\Images\\diamond1.png"));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-		
-		if (img != null) {
-			graphics.drawImage(img, 0, 0, 16,16, this);
-        }
-        if (img2 != null) {
-        	graphics.drawImage(img2, 16, 0, 16,16, this);
-        }
-	   
-	      /*graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-	      
-	      HashMap<Point, String> test = this.getViewFrame().getModel().getHelloWorld().createMap();
-	      String test2 = this.getViewFrame().getModel().getHelloWorld().printMap(test);
-	       /* String[] message =this.getViewFrame().getModel().getHelloWorld().getMessage().split(";");
-	        int hauteur = 16;
-	        for (String msg : message)
-	        { 
-	            graphics.drawString(msg, 1,hauteur);
-	            hauteur+=16;
-	        }  */
 	}
 	
 }

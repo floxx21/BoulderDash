@@ -5,8 +5,8 @@ import java.awt.Image;
 
 public class Player extends Creature {
 	
-	private int x;
-	private int y;
+	public static int x;
+	public static int y;
 	
 	public Player(final int x, final int y){
 		this.setX(x);

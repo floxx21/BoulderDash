@@ -1,5 +1,7 @@
 package contract;
 
+import java.util.Observable;
+
 /**
  * The Interface IView.
  *

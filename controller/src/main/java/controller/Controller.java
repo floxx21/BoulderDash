@@ -6,6 +6,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import entity.Player;
 
 /**
  * The Class Controller.
@@ -75,6 +76,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
+		Player p = new Player(Player.x, Player.y);
 		switch (controllerOrder) {
 			case Map1:
 				this.model.loadHelloWorld("L1");
@@ -93,20 +95,20 @@ public final class Controller implements IController {
 				break;
 			case Up:
 				//joueur = 2;
-				Y = Y-16;
-					
-				System.out.println("Y = " + Y);
-				if (Y==16) {
-				   	Y=32;
+				Player.y = Player.y-16;
+				System.out.println("Y = " + Player.y);
+				if (Player.y==16) {
+				   	Player.y=32;
 				}
 				break;
 			case Down:
 				//joueur = 1;
-				Y=Y+16;
-				System.out.println("Y = " + Y);
-				if (Y==544) {
-				  	Y=528;
+				Player.y=Player.y+16;
+				System.out.println("Y = " + Player.y);
+				if (Player.y==336) {
+				  	Player.y=320;
 				}
+				
 			case Left:
 				
 				break;

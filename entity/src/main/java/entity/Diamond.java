@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 public class Diamond extends Entity{
 
-private final String IMAGE_PATH="D:\\CESI\\image\\diamond.png";
+private final String IMAGE_PATH="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\diamond.png";
 	
 	public Diamond (final int x, final int y) {
 		this.setX(x);

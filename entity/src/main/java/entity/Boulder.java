@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 public class Boulder extends Entity {
 
 	
-	private final String IMAGE_PATH="D:\\CESI\\image\\rock.png";
+	private final String IMAGE_PATH="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\rock.png";
 	
 	public Boulder (final int x, final int y) {
 		this.setX(x);
