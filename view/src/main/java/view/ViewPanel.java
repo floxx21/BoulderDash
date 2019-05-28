@@ -46,6 +46,7 @@ class ViewPanel extends JPanel implements Observer {
 		return this.viewFrame;
 	}
 
+	public int [][] map = new int [20][20] ;
 	/**
 	 * Sets the view frame.
 	 *
@@ -76,19 +77,21 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
         String[] message =this.getViewFrame().getModel().getHelloWorld().getMessage().split(";");
         int hauteur = 16;
+        int y = 0;
         for (String msg : message)
         { 
-        	char[] test = msg.toCharArray();
-        	for (int x=0; x < test.length; x++) {
-        		
-        		switch(test[x]) {
+        	char[] splitMsg = msg.toCharArray();
+        	for (int i = 0; i < splitMsg.length; i++) {
+                map[i][y] = splitMsg[i];
+                System.out.println(map[i][y]);
+        		switch(splitMsg[i]) {
         		case 48:
-						graphics.drawImage(new Dirt(x*16, hauteur).getImg(), x*16, hauteur, null);
+						graphics.drawImage(new Dirt(i*16, hauteur).getImg(), i*16, hauteur, null);
         			break;
         		case 49:
         			try {
 						Image img = ImageIO.read(new File("D:\\CESI\\image\\wall.png"));
-						graphics.drawImage(img, x*16, hauteur, null);
+						graphics.drawImage(img, i*16, hauteur, null);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -98,7 +101,7 @@ class ViewPanel extends JPanel implements Observer {
         		case 50:
         			try {
 						Image img = ImageIO.read(new File("D:\\CESI\\image\\rock.png"));
-						graphics.drawImage(img, x*16, hauteur, null);
+						graphics.drawImage(img, i*16, hauteur, null);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -108,7 +111,7 @@ class ViewPanel extends JPanel implements Observer {
         		case 51:
 					try {
 						Image img = ImageIO.read(new File("D:\\CESI\\image\\diamond.png"));
-						graphics.drawImage(img, x*16, hauteur, null);
+						graphics.drawImage(img, i*16, hauteur, null);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -118,7 +121,7 @@ class ViewPanel extends JPanel implements Observer {
         		case 52:
         			try {
 						Image img = ImageIO.read(new File("D:\\CESI\\image\\down.png"));
-						graphics.drawImage(img, x*16, hauteur, null);
+						graphics.drawImage(img, i*16, hauteur, null);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -128,7 +131,7 @@ class ViewPanel extends JPanel implements Observer {
         		case 53:
         			try {
 						Image img = ImageIO.read(new File("D:\\CESI\\image\\exit.png"));
-						graphics.drawImage(img, x*16, hauteur, null);
+						graphics.drawImage(img, i*16, hauteur, null);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -138,7 +141,7 @@ class ViewPanel extends JPanel implements Observer {
         		case 54:
         			try {
 						Image img = ImageIO.read(new File("D:\\CESI\\image\\monster.png"));
-						graphics.drawImage(img, x*16, hauteur, null);
+						graphics.drawImage(img, i*16, hauteur, null);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -146,7 +149,7 @@ class ViewPanel extends JPanel implements Observer {
 					}
         			break;
         		default:
-        			graphics.drawString(String.valueOf(test[x]), x*16, hauteur);
+        			graphics.drawString(String.valueOf(splitMsg[i]), i*16, hauteur);
         			break;
         		}
         	}
