@@ -3,6 +3,7 @@ package view;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -82,18 +83,54 @@ class ViewPanel extends JPanel implements Observer {
         int hauteur = 16;
         for (String msg : message)
         { 
-            graphics.drawString(msg, 1,hauteur);
+        	char[] test = msg.toCharArray();
+        	for (int x=0; x < test.length; x++) {
+        		
+        		switch(test[x]) {
+        		case 0:
+        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        			break;
+        		case 1:
+        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        			break;
+        		case 2:
+        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        			break;
+        		case 3:
+        			Image img;
+					try {
+						img = ImageIO.read(new File("D:\\CESI\\diamond.png"));
+						graphics.drawImage(img, x*16, hauteur, null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+					}
+        			break;
+        		case 4:
+        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        			break;
+        		case 5:
+        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        			break;
+        		case 6:
+        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        			break;
+        		default:
+        			graphics.drawString(String.valueOf(test[x]), x*16, hauteur);
+        			break;
+        		}
+        	}
+         //   graphics.drawString(msg, 1,hauteur);
             hauteur+=16;
         }  
 
-		/*try {
+	/*	try {
             img = ImageIO.read(new File("D:\\Images\\playersheet.png"));
             img2 = ImageIO.read(new File("D:\\Images\\diamond1.png"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
 		
 		if (img != null) {
 			graphics.drawImage(img, 0, 0, 16,16, this);
