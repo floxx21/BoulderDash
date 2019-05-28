@@ -1,12 +1,16 @@
 package entity;
 
-
-import java.awt.Image;
-
 public class Player extends Creature {
 	
-	public static int x;
-	public static int y;
+	public static int startx, x;
+	public static int starty, y;
+	public static int faceplayer = 1;
+	public static int score = 0;
+	
+	/*private final String IMAGE_PATH_UP="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\up.png";
+	private final String IMAGE_PATH_DOWN="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png";
+	private final String IMAGE_PATH_RIGHT="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\right.png";
+	private final String IMAGE_PATH_LEFT="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\left.png";*/
 	
 	public Player(final int x, final int y){
 		this.setX(x);

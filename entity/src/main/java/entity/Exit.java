@@ -20,7 +20,6 @@ private final String IMAGE_PATH="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOU
 			img = ImageIO.read(new File(IMAGE_PATH));
 			this.setImg(img);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 }

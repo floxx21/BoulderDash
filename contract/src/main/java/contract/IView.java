@@ -16,5 +16,6 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
-	void displayPlayer(Graphics g);
+	
+	public void displayPlayer();
 }

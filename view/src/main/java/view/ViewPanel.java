@@ -1,15 +1,14 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import entity.Boulder;
@@ -35,6 +34,8 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 	
+	public int [][] map = new int [20][20] ;
+	
 
 	/**
 	 * Instantiates a new view panel.
@@ -42,11 +43,6 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public void displayPlayer(Graphics g) throws IOException{
-		Image img = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png"));
-		//g.clearRect(Player.x, Player.y, 16,16);
-		g.drawImage(img, Player.x, Player.y, null);
-	}
 	
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
@@ -61,8 +57,6 @@ class ViewPanel extends JPanel implements Observer {
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
 	}
-
-	public int [][] map = new int [20][20] ;
 	/**
 	 * Sets the view frame.
 	 *
@@ -92,14 +86,13 @@ class ViewPanel extends JPanel implements Observer {
 		
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
         String[] message =this.getViewFrame().getModel().getHelloWorld().getMessage().split(";");
-        int hauteur = 16;
+        int hauteur = 0;
         int y = 0;
         for (String msg : message)
         { 
         	char[] splitMsg = msg.toCharArray();
         	for (int x = 0; x < splitMsg.length; x++) {
                 map[x][y] = splitMsg[x];
-                //System.out.println(map[x][y]);
         		switch(splitMsg[x]) {
         		case 48:
 						graphics.drawImage(new Dirt(x*16, hauteur).getImg(), x*16, hauteur, null);
@@ -118,6 +111,8 @@ class ViewPanel extends JPanel implements Observer {
 						Image img = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png"));
 						Player.x = x*16;
 						Player.y = hauteur;
+						Player.startx = x*16;
+						Player.starty = hauteur;
 						graphics.drawImage(img, Player.x, Player.y, null);
 					} catch (IOException e) {
 						e.printStackTrace();
@@ -134,9 +129,94 @@ class ViewPanel extends JPanel implements Observer {
         			break;
         		}
         	}
-         //   graphics.drawString(msg, 1,hauteur);
             hauteur+=16;
+            y++;
         }  
+	}
+	
+	public void displayPlayer(Graphics g) throws IOException{
+		Image img = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png"));
+		Image img2 = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\up.png"));
+		Image img3 = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\left.png"));
+		Image img4 = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\right.png"));
+		Image path = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\path.png"));
+		
+		/*
+		 * When the player walks on the ground or a diamond the block is replaced by a path
+		 */
+		
+		if (map[Player.x/16][Player.y/16] == 48 || map[Player.x/16][Player.y/16] == 51) {
+			if(Player.x < Player.startx) {
+		        g.drawImage(path, Player.startx, Player.starty, null);
+			}
+			if(Player.x > Player.startx) {
+		        g.drawImage(path, Player.startx, Player.starty, null);
+			}
+			if(Player.y < Player.starty) {
+		        g.drawImage(path, Player.startx, Player.starty, null);
+			}
+			if(Player.y > Player.starty) {
+		        g.drawImage(path, Player.startx, Player.starty, null);
+			}
+		    Player.startx = Player.x;
+		    Player.starty = Player.y;
+		}
+		
+		/*
+		 * When a player walks on a diamond he earns points
+		 */
+		
+        if( map[Player.x/16][Player.y/16] == 51) {
+        	Player.score ++;
+        	viewFrame.setScore();
+        }
+
+        /*
+         * Death of the Player
+         */
+        
+        if( map[Player.x/16][Player.y/16] == 54) {
+        	viewFrame.printMessage("You are dead !");
+        	System.exit(0);
+        }
+        
+        /*
+         * When a player walks on a wall or a ball he is teleported back
+         */
+        
+        if (map[Player.x/16][Player.y/16] == 49 || map[Player.x/16][Player.y/16] == 50) {
+	        Player.x = Player.startx;
+	        Player.y = Player.starty;
+        }
+        
+        /*
+         * When the player wins
+         */
+        
+        if (Player.x== 288 && Player.y== 256) {
+        	viewFrame.printMessage("You are win !");
+        	System.exit(0);
+        }
+        
+        /*
+         * Change the image of the player's position when he moves
+         */
+        
+        switch(Player.faceplayer){
+		case 1:
+			g.drawImage(img, Player.x, Player.y, null);
+			break;
+		case 2:
+			g.drawImage(img2, Player.x, Player.y, null);
+			break;
+		case 3:
+			g.drawImage(img3, Player.x, Player.y, null);
+			break;
+		case 4:
+			g.drawImage(img4, Player.x, Player.y, null);
+			break;
+		}
+		
 	}
 	
 }

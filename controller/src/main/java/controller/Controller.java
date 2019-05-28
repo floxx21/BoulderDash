@@ -92,39 +92,36 @@ public final class Controller implements IController {
 				this.model.loadHelloWorld("L5");
 				break;
 			case Up:
-				//joueur = 2;
+				Player.faceplayer = 2;
 				Player.y = Player.y-16;
-				System.out.println("Y = " + Player.y);
-				if (Player.y==16) {
-				   	Player.y=32;
+				if (Player.y==0) {
+				   	Player.y=16;
 				}
-				this.view.displayPlayer(null);
+				this.view.displayPlayer();
 				break;
 			case Down:
-				//joueur = 1;
+				Player.faceplayer = 1;
 				Player.y = Player.y+16;
-				System.out.println("Y = " + Player.y);
-				if (Player.y==320) {
-				  	Player.y=304;
+				if (Player.y==304) {
+				  	Player.y=288;
 				}
-				this.view.displayPlayer(null);
+				this.view.displayPlayer();
+				break;
 			case Left:
-				//Player.joueur = 3;
+				Player.faceplayer = 3;
 				Player.x=Player.x-16;
-	            System.out.println("X =" + Player.x);
 	            if (Player.x==0) {
 	            	Player.x=16;
 	            }
-	            this.view.displayPlayer(null);
+	            this.view.displayPlayer();
 				break;
 			case Right:
-				//Player.joueur = 4;
+				Player.faceplayer = 4;
 				Player.x=Player.x+16;
-	            System.out.println("X =" + Player.x);
 	            if (Player.x==304) {
 	            	Player.x=288;
 	            }
-	            this.view.displayPlayer(null);
+	            this.view.displayPlayer();
 				break;
 			default:
 				break;

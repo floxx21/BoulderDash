@@ -1,21 +1,19 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
-import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import contract.IController;
 import contract.IModel;
+import entity.Player;
 
 /**
  * The Class ViewFrame.
@@ -134,12 +132,13 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the model
 	 */
 	private void buildViewFrame(final IModel model) {
+		this.setTitle("Boulder Dash");
 		this.setModel(model);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(330 + this.getInsets().left + this.getInsets().right, 400 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(325 + this.getInsets().left + this.getInsets().right, 350 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 	}
 	
@@ -154,6 +153,10 @@ class ViewFrame extends JFrame implements KeyListener {
 		JOptionPane.showMessageDialog(null, message);
 	}
 
+	public void setScore(){
+		this.setTitle("Boulder Dash - Score "+Player.score);
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 *
