@@ -44,7 +44,7 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public void displayPlayer(Graphics g) throws IOException{
 		Image img = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png"));
-		g.clearRect(Player.x, Player.y, 16,16);
+		//g.clearRect(Player.x, Player.y, 16,16);
 		g.drawImage(img, Player.x, Player.y, null);
 	}
 	

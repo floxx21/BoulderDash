@@ -102,7 +102,7 @@ public final class Controller implements IController {
 				break;
 			case Down:
 				//joueur = 1;
-				Player.y=Player.y+16;
+				Player.y = Player.y+16;
 				System.out.println("Y = " + Player.y);
 				if (Player.y==320) {
 				  	Player.y=304;
@@ -110,12 +110,12 @@ public final class Controller implements IController {
 				this.view.displayPlayer(null);
 			case Left:
 				//Player.joueur = 3;
-				/*Player.x=Player.x-16;
+				Player.x=Player.x-16;
 	            System.out.println("X =" + Player.x);
 	            if (Player.x==0) {
 	            	Player.x=16;
 	            }
-	            this.view.displayPlayer(null);*/
+	            this.view.displayPlayer(null);
 				break;
 			case Right:
 				//Player.joueur = 4;
