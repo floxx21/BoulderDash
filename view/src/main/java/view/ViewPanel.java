@@ -87,19 +87,9 @@ class ViewPanel extends JPanel implements Observer {
         	for (int x=0; x < test.length; x++) {
         		
         		switch(test[x]) {
-        		case 0:
-        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
-        			break;
-        		case 1:
-        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
-        			break;
-        		case 2:
-        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
-        			break;
-        		case 3:
-        			Image img;
-					try {
-						img = ImageIO.read(new File("D:\\CESI\\diamond.png"));
+        		case 48:
+        			try {
+						Image img = ImageIO.read(new File("D:\\CESI\\image\\dirt.png"));
 						graphics.drawImage(img, x*16, hauteur, null);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
@@ -107,14 +97,65 @@ class ViewPanel extends JPanel implements Observer {
 						
 					}
         			break;
-        		case 4:
-        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        		case 49:
+        			try {
+						Image img = ImageIO.read(new File("D:\\CESI\\image\\wall.png"));
+						graphics.drawImage(img, x*16, hauteur, null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+					}
         			break;
-        		case 5:
-        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        		case 50:
+        			try {
+						Image img = ImageIO.read(new File("D:\\CESI\\image\\rock.png"));
+						graphics.drawImage(img, x*16, hauteur, null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+					}
         			break;
-        		case 6:
-        			graphics.drawString(String.valueOf(test[x]), x*16,hauteur);
+        		case 51:
+					try {
+						Image img = ImageIO.read(new File("D:\\CESI\\image\\diamond.png"));
+						graphics.drawImage(img, x*16, hauteur, null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+					}
+        			break;
+        		case 52:
+        			try {
+						Image img = ImageIO.read(new File("D:\\CESI\\image\\down.png"));
+						graphics.drawImage(img, x*16, hauteur, null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+					}
+        			break;
+        		case 53:
+        			try {
+						Image img = ImageIO.read(new File("D:\\CESI\\image\\exit.png"));
+						graphics.drawImage(img, x*16, hauteur, null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+					}
+        			break;
+        		case 54:
+        			try {
+						Image img = ImageIO.read(new File("D:\\CESI\\image\\monster.png"));
+						graphics.drawImage(img, x*16, hauteur, null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+					}
         			break;
         		default:
         			graphics.drawString(String.valueOf(test[x]), x*16, hauteur);

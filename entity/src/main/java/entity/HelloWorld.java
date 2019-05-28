@@ -99,7 +99,7 @@ public class HelloWorld extends Entity {
 		this.message = message;
 	}
 
-	public HashMap<Point, String> createMap() {
+	/*public HashMap<Point, String> createMap() {
         String[] chaineMap = this.getMessage().split(",");
         HashMap<Point, String> map = new HashMap<Point, String>();
         int x = 0;
@@ -115,7 +115,7 @@ public class HelloWorld extends Entity {
             }
 
         }
-        return map; 
+        return map;*/ 
 
      /* String chaineMap = this.getMessage();
         HashMap<Point, String> map = new HashMap<Point, String>();
@@ -161,5 +161,4 @@ public class HelloWorld extends Entity {
         return grid.toString();
     }*/
 
-}
 
