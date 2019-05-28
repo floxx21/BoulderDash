@@ -1,7 +1,5 @@
 package controller;
 
-import java.awt.event.KeyEvent;
-
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -100,20 +98,33 @@ public final class Controller implements IController {
 				if (Player.y==16) {
 				   	Player.y=32;
 				}
+				this.view.displayPlayer(null);
 				break;
 			case Down:
 				//joueur = 1;
 				Player.y=Player.y+16;
 				System.out.println("Y = " + Player.y);
-				if (Player.y==336) {
-				  	Player.y=320;
+				if (Player.y==320) {
+				  	Player.y=304;
 				}
-				
+				this.view.displayPlayer(null);
 			case Left:
-				
+				//Player.joueur = 3;
+				/*Player.x=Player.x-16;
+	            System.out.println("X =" + Player.x);
+	            if (Player.x==0) {
+	            	Player.x=16;
+	            }
+	            this.view.displayPlayer(null);*/
 				break;
 			case Right:
-				
+				//Player.joueur = 4;
+				Player.x=Player.x+16;
+	            System.out.println("X =" + Player.x);
+	            if (Player.x==304) {
+	            	Player.x=288;
+	            }
+	            this.view.displayPlayer(null);
 				break;
 			default:
 				break;

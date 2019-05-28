@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -41,6 +42,12 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
+	public void displayPlayer(Graphics g) throws IOException{
+		Image img = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png"));
+		g.clearRect(Player.x, Player.y, 16,16);
+		g.drawImage(img, Player.x, Player.y, null);
+	}
+	
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
@@ -74,7 +81,7 @@ class ViewPanel extends JPanel implements Observer {
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 *
@@ -114,7 +121,6 @@ class ViewPanel extends JPanel implements Observer {
 						graphics.drawImage(img, Player.x, Player.y, null);
 					} catch (IOException e) {
 						e.printStackTrace();
-						
 					}
         			break;
         		case 53:

@@ -1,6 +1,6 @@
 package contract;
 
-import java.util.Observable;
+import java.awt.Graphics;
 
 /**
  * The Interface IView.
@@ -16,4 +16,5 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
+	void displayPlayer(Graphics g);
 }

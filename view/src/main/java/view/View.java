@@ -1,6 +1,10 @@
 package view;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.SwingUtilities;
 
@@ -25,6 +29,15 @@ public final class View implements IView, Runnable {
 	 * @param model
 	 *          the model
 	 */
+	@Override
+	public void displayPlayer(Graphics g){
+        try {
+            ((ViewPanel) this.viewFrame.getContentPane()).displayPlayer(this.viewFrame.getContentPane().getGraphics());
+        } catch (IOException ex) {
+            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+	
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
