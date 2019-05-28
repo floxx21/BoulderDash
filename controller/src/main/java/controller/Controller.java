@@ -92,11 +92,21 @@ public final class Controller implements IController {
 				this.model.loadHelloWorld("L5");
 				break;
 			case Up:
-				
+				//joueur = 2;
+				Y = Y-16;
+					
+				System.out.println("Y = " + Y);
+				if (Y==16) {
+				   	Y=32;
+				}
 				break;
 			case Down:
-				
-				break;
+				//joueur = 1;
+				Y=Y+16;
+				System.out.println("Y = " + Y);
+				if (Y==544) {
+				  	Y=528;
+				}
 			case Left:
 				
 				break;

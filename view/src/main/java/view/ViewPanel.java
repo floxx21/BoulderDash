@@ -25,6 +25,9 @@ import entity.Wall;
  */
 class ViewPanel extends JPanel implements Observer {
 
+	public static int X;
+	public static int Y;
+	
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
@@ -106,6 +109,8 @@ class ViewPanel extends JPanel implements Observer {
         			try {
 						Image img = ImageIO.read(new File("D:\\CESI\\image\\down.png"));
 						graphics.drawImage(img, x*16, hauteur, null);
+						X = x*16;
+						Y = hauteur;
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
