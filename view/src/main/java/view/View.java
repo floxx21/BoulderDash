@@ -39,7 +39,7 @@ public final class View implements IView, Runnable {
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_NUMPAD1:
+		/*	case KeyEvent.VK_NUMPAD1:
 				return ControllerOrder.Map1;
 			case KeyEvent.VK_NUMPAD2:
 				return ControllerOrder.Map2;
@@ -48,7 +48,7 @@ public final class View implements IView, Runnable {
 			case KeyEvent.VK_NUMPAD4:
 				return ControllerOrder.Map4;
 			case KeyEvent.VK_NUMPAD5:
-				return ControllerOrder.Map5;
+				return ControllerOrder.Map5; */
 			case KeyEvent.VK_UP:
 				return ControllerOrder.Up;
 			case KeyEvent.VK_DOWN:
@@ -58,7 +58,7 @@ public final class View implements IView, Runnable {
 			case KeyEvent.VK_RIGHT:
 				return ControllerOrder.Right;
 			default:
-				return ControllerOrder.Map1;
+				return null;
 		}
 	}
 
