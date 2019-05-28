@@ -11,7 +11,12 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import entity.Boulder;
+import entity.Diamond;
 import entity.Dirt;
+import entity.Enemy;
+import entity.Exit;
+import entity.Wall;
 
 /**
  * The Class ViewPanel.
@@ -81,47 +86,26 @@ class ViewPanel extends JPanel implements Observer {
         for (String msg : message)
         { 
         	char[] splitMsg = msg.toCharArray();
-        	for (int i = 0; i < splitMsg.length; i++) {
-                map[i][y] = splitMsg[i];
-                System.out.println(map[i][y]);
-        		switch(splitMsg[i]) {
+        	for (int x = 0; x < splitMsg.length; x++) {
+                map[x][y] = splitMsg[x];
+                System.out.println(map[x][y]);
+        		switch(splitMsg[x]) {
         		case 48:
-						graphics.drawImage(new Dirt(i*16, hauteur).getImg(), i*16, hauteur, null);
+						graphics.drawImage(new Dirt(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		case 49:
-        			try {
-						Image img = ImageIO.read(new File("D:\\CESI\\image\\wall.png"));
-						graphics.drawImage(img, i*16, hauteur, null);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						
-					}
+        				graphics.drawImage(new Wall(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		case 50:
-        			try {
-						Image img = ImageIO.read(new File("D:\\CESI\\image\\rock.png"));
-						graphics.drawImage(img, i*16, hauteur, null);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						
-					}
+        				graphics.drawImage(new Boulder(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		case 51:
-					try {
-						Image img = ImageIO.read(new File("D:\\CESI\\image\\diamond.png"));
-						graphics.drawImage(img, i*16, hauteur, null);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						
-					}
+						graphics.drawImage(new Diamond(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		case 52:
         			try {
 						Image img = ImageIO.read(new File("D:\\CESI\\image\\down.png"));
-						graphics.drawImage(img, i*16, hauteur, null);
+						graphics.drawImage(img, x*16, hauteur, null);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -129,27 +113,13 @@ class ViewPanel extends JPanel implements Observer {
 					}
         			break;
         		case 53:
-        			try {
-						Image img = ImageIO.read(new File("D:\\CESI\\image\\exit.png"));
-						graphics.drawImage(img, i*16, hauteur, null);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						
-					}
+        				graphics.drawImage(new Exit(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		case 54:
-        			try {
-						Image img = ImageIO.read(new File("D:\\CESI\\image\\monster.png"));
-						graphics.drawImage(img, i*16, hauteur, null);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						
-					}
+        				graphics.drawImage(new Enemy(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		default:
-        			graphics.drawString(String.valueOf(splitMsg[i]), i*16, hauteur);
+        			graphics.drawString(String.valueOf(splitMsg[x]), x*16, hauteur);
         			break;
         		}
         	}
