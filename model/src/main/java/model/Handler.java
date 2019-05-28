@@ -6,18 +6,18 @@ import view.GameCamera;
 
 public class Handler {
 	
-	private static BoulderdashModel game;
+	private static Model game;
 	private World world;
 	
 	
-	public Handler(BoulderdashModel game){
+	public Handler(Model game){
 		Handler.game = game;
 	}
 	
 	
 	//GETSET
 	
-	public BoulderdashController getKeyManager(){
+	public Controller getKeyManager(){
 		return game.getKeyManager();
 	}
 	
@@ -42,9 +42,4 @@ public class Handler {
 		Handler.game = game;
 	}
 
-	public GameCamera getGameCamera(){
-		return game.getGameCamera();
-	}
-	
-	
 }
