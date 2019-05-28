@@ -1,5 +1,10 @@
 package entity;
 
-public class Creature extends Entity{
+
+import java.awt.Image;
+
+public abstract class Creature extends Entity{
+	
+	
 
 }

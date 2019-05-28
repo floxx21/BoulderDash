@@ -6,13 +6,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+public class Wall extends Entity {
 
-public class Exit extends Entity{
-
-
-private final String IMAGE_PATH="D:\\CESI\\image\\exit.png";
+private final String IMAGE_PATH="D:\\CESI\\image\\wall.png";
 	
-	public Exit (final int x, final int y) {
+	public Wall (final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
 		Image img;
@@ -23,5 +21,6 @@ private final String IMAGE_PATH="D:\\CESI\\image\\exit.png";
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-}
+		
+	}
 }

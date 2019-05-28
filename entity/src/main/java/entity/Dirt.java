@@ -6,14 +6,12 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Dirt  {
+public class Dirt extends Entity {
 
-	private int x, y ;
 	
-	private Image img;
 	private final String IMAGE_PATH="D:\\CESI\\image\\dirt.png";
 	
-	public Dirt(final int x, final int y) {
+	public Dirt (final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
 		Image img;
@@ -27,28 +25,6 @@ public class Dirt  {
 		
 	}
 
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public Image getImg() {
-		return img;
-	}
-
-	public void setImg(Image img) {
-		this.img = img;
-	}
+	
 
 }
