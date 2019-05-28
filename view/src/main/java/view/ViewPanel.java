@@ -1,22 +1,17 @@
 package view;
 
-import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
+import java.io.InputStream;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import entity.HelloWorld;
+
+import entity.Dirt;
 
 /**
  * The Class ViewPanel.
@@ -88,14 +83,7 @@ class ViewPanel extends JPanel implements Observer {
         		
         		switch(test[x]) {
         		case 48:
-        			try {
-						Image img = ImageIO.read(new File("D:\\CESI\\image\\dirt.png"));
-						graphics.drawImage(img, x*16, hauteur, null);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						
-					}
+						graphics.drawImage(new Dirt(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		case 49:
         			try {
