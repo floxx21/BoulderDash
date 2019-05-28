@@ -1,5 +1,8 @@
 package entity;
 
+import java.awt.Point;
+import java.util.HashMap;
+
 /**
  * The Class HelloWorld.
  *
@@ -96,4 +99,67 @@ public class HelloWorld extends Entity {
 		this.message = message;
 	}
 
+	public HashMap<Point, String> createMap() {
+       /* String[] chaineMap = this.getMessage().split(",");
+        HashMap<Point, String> map = new HashMap<Point, String>();
+        int x = 0;
+        int y = 0;
+        for (String sprite : chaineMap) {
+            if (sprite == ";") {
+                y++;
+                x = 0;
+            } else {
+                map.put(new Point(x, y), sprite);
+                x++;
+                System.out.println("mon sprite: " + sprite);
+            }
+
+        }
+        return map; */
+
+       String chaineMap = this.getMessage();
+        HashMap<Point, String> map = new HashMap<Point, String>();
+        int x = 0;
+        int y = 0;
+        char sprite;
+        for (int i=0; i<chaineMap.length(); i++) {
+            sprite= chaineMap.charAt(i);
+            String spriteStr;
+            if (sprite == ';') {
+                y++;
+                x = 0;
+                //System.out.println("Je suis if");
+            } else {
+                spriteStr= ""+sprite;
+                map.put(new Point(x, y), spriteStr);
+                x++;
+                //System.out.println("mon sprite: " + spriteStr);
+            }
+
+        }
+        return map;
+    }
+
+    public String printMap(HashMap<Point, String> map) {
+        int height = 20;
+        int width = 20;
+        int lenght = height * width;
+        StringBuilder grid = new StringBuilder(lenght);
+        for (int i = 0; i < lenght; i++) {
+            if (i >= width && i % (width) == 0) {
+                grid.append('\n');
+            }
+            grid.append(' ');
+        }
+        for (Point c : map.keySet()) {
+            int index = (int) (c.getX() * (width + 1) + c.getY());
+            grid.setCharAt(index, map.get(c).toString().charAt(0));
+            // System.out.println(index);
+
+        }
+        System.out.println(grid.toString());
+        return grid.toString();
+    }
+
 }
+
