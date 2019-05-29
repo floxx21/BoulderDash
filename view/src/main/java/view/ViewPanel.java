@@ -137,7 +137,7 @@ class ViewPanel extends JPanel implements Observer {
 						map[x][y+1] = 50;
 						map[x][y] = 55;
 					}
-					if(map[x+1][y] == 55){
+					else if(map[x+1][y] == 55 && map[x-1][y] != 55){
 						if(map[x+1][y+1] == 55){
 							g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
 							g.drawImage(new Boulder(x*16, y*16).getImg(), x*16+16, y*16+16, null);
@@ -145,11 +145,19 @@ class ViewPanel extends JPanel implements Observer {
 							map[x][y] = 55;
 						}
 					}
-					if(map[x-1][y] == 55){
+					else if(map[x-1][y] == 55 && map[x+1][y] != 55){
 						if(map[x-1][y+1] == 55){
 							g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
 							g.drawImage(new Boulder(x*16, y*16).getImg(), x*16-16, y*16+16, null);
 							map[x-1][y+1] = 50;
+							map[x][y] = 55;
+						}
+					}
+					else if(map[x+1][y] == 55 && map[x-1][y] == 55){
+						if(map[x+1][y+1] == 55){
+							g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
+							g.drawImage(new Boulder(x*16, y*16).getImg(), x*16+16, y*16+16, null);
+							map[x+1][y+1] = 50;
 							map[x][y] = 55;
 						}
 					}
