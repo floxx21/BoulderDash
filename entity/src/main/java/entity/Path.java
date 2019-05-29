@@ -10,9 +10,14 @@ import javax.imageio.ImageIO;
 
 public class Path extends Entity{
 
-	
+	/*
+	* defining a constant for the image
+	*/
 	private final String IMAGE_PATH="images/path.png";
 	
+	/*
+	 * instantiate a new entity for the Path
+	 */
 	public Path (final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
@@ -23,14 +28,6 @@ public class Path extends Entity{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		/*Image img;
-		try {
-			img = ImageIO.read(new File(IMAGE_PATH));
-			this.setImg(img);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
-		
 	}
 	
 }

@@ -1,5 +1,4 @@
-/**
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+/*
  * @version 1.0
  */
 package main;
@@ -9,10 +8,9 @@ import controller.Controller;
 import model.Model;
 import view.View;
 
-/**
+/*
  * The Class Main.
  *
- * @author Jean-Aymeric Diet
  */
 public abstract class Main {
 
@@ -29,6 +27,6 @@ public abstract class Main {
         view.setController(controller);
 
         controller.control();
-        controller.orderPerform(ControllerOrder.Map5);
+        controller.orderPerform(ControllerOrder.Map3);
     }
 }

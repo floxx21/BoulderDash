@@ -10,8 +10,15 @@ import javax.imageio.ImageIO;
 
 public class Wall extends Entity {
 
+/*
+ * defining a constant for the image
+ */
+	
 private final String IMAGE_PATH="images/wall.png";
 	
+/*
+ * instantiate a new entity for the walls
+ */
 	public Wall (final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
@@ -22,13 +29,6 @@ private final String IMAGE_PATH="images/wall.png";
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		/*Image img;
-		try {
-			img = ImageIO.read(new File(IMAGE_PATH));
-			this.setImg(img);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
 		
 	}
 }

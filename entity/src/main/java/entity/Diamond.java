@@ -10,8 +10,15 @@ import javax.imageio.ImageIO;
 
 public class Diamond extends Entity{
 
+/*
+* defining a constant for the image
+*/
+	
 private final String IMAGE_PATH="images/diamond.png";
 	
+/*
+ * instantiate a new entity for the dirt
+ */
 	public Diamond (final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
@@ -22,12 +29,5 @@ private final String IMAGE_PATH="images/diamond.png";
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		/*Image img;
-		try {
-			img = ImageIO.read(new File(IMAGE_PATH));
-			this.setImg(img);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
 }
 }
