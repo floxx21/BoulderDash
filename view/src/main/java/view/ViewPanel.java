@@ -131,6 +131,16 @@ class ViewPanel extends JPanel implements Observer {
         }  
 	}
 	
+	public void rock(){
+		for(int x = 0; x < 20; x++){
+			for(int y = 0; y < 20; y++){
+				if(map[x][y] == 50){
+					
+				}
+			}
+		}
+	}
+	
 	public void displayPlayer(Graphics g) throws IOException{
 		
 		/*

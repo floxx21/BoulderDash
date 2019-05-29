@@ -37,6 +37,11 @@ public final class View implements IView, Runnable {
         }
     }
 	
+	@Override
+	public void rock(){
+        ((ViewPanel) this.viewFrame.getContentPane()).rock();
+    }
+	
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
