@@ -1,27 +1,35 @@
 package entity;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
 public class Path extends Entity{
 
 	
-	private final String IMAGE_PATH="D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\path.png";
+	private final String IMAGE_PATH="images/path.png";
 	
 	public Path (final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
-		
-		Image img;
+		InputStream in = getClass().getResourceAsStream(IMAGE_PATH);
+		try {
+			BufferedImage img = ImageIO.read(in);
+			this.setImg(img);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		/*Image img;
 		try {
 			img = ImageIO.read(new File(IMAGE_PATH));
 			this.setImg(img);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 	

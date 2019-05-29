@@ -108,16 +108,11 @@ class ViewPanel extends JPanel implements Observer {
 						graphics.drawImage(new Diamond(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		case 52:
-        			try {
-						Image img = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png"));
-						Player.x = x*16;
-						Player.y = hauteur;
-						Player.startx = x*16;
-						Player.starty = hauteur;
-						graphics.drawImage(img, Player.x, Player.y, null);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+					Player.x = x*16;
+					Player.y = hauteur;
+					Player.startx = x*16;
+					Player.starty = hauteur;
+					graphics.drawImage(new Player(x*16, hauteur).getImg(), Player.x, Player.y, null);
         			break;
         		case 53:
         				graphics.drawImage(new Exit(x*16, hauteur).getImg(), x*16, hauteur, null);
@@ -139,22 +134,16 @@ class ViewPanel extends JPanel implements Observer {
 	}
 	
 	public void displayPlayer(Graphics g) throws IOException{
-		Image img = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\down.png"));
-		Image img2 = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\up.png"));
-		Image img3 = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\left.png"));
-		Image img4 = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\right.png"));
-		Image path = ImageIO.read(new File("D:\\EXIA\\Semestre 2\\Projets\\Projet 2\\RESSOURCES PROJET\\sprites\\path.png"));
-		
 		/*
 		 * When the player walks on the ground or a diamond the block is replaced by a path
 		 */
 		
 		if ((map[Player.x/16][Player.y/16] == 48) || (map[Player.x/16][Player.y/16] == 51) || (map[Player.x/16][Player.y/16] == 55)) {
-		    g.drawImage(path, Player.startx, Player.starty, null);
+		    g.drawImage(new Path(Player.startx*16, Player.starty).getImg(), Player.startx, Player.starty, null);
 		    map[Player.startx/16][Player.starty/16] = 55;
 		    Player.startx = Player.x;
 		    Player.starty = Player.y;
-		    g.drawImage(path, Player.startx, Player.starty, null);
+		    g.drawImage(new Path(Player.startx*16, Player.starty).getImg(), Player.startx, Player.starty, null);
 		}
 		
 		/*
@@ -198,23 +187,10 @@ class ViewPanel extends JPanel implements Observer {
         }
         
         /*
-         * Change the image of the player's position when he moves
+         * View player's image
          */
         
-        switch(Player.faceplayer){
-		case 1:
-			g.drawImage(img, Player.x, Player.y, null);
-			break;
-		case 2:
-			g.drawImage(img2, Player.x, Player.y, null);
-			break;
-		case 3:
-			g.drawImage(img3, Player.x, Player.y, null);
-			break;
-		case 4:
-			g.drawImage(img4, Player.x, Player.y, null);
-			break;
-		}
+        g.drawImage(new Player(Player.x, Player.y).getImg(), Player.x, Player.y, null);
 	}
 	
 }
