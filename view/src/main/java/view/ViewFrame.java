@@ -4,10 +4,16 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.net.MalformedURLException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.net.URL;
 
-import javax.swing.ImageIcon;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -22,6 +28,8 @@ import entity.Player;
  */
 class ViewFrame extends JFrame implements KeyListener {
 
+	public static Clip clip = null;
+	
 	/** The model. */
 	private IModel						model;
 
@@ -132,6 +140,34 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the model
 	 */
 	private void buildViewFrame(final IModel model) {
+		
+		/**
+		 * Launch of music
+		 */
+		
+		URL url = getClass().getResource("boulder.wav");
+		try {
+			clip = AudioSystem.getClip();
+		} catch (LineUnavailableException e1) {
+			e1.printStackTrace();
+		}
+	    try(AudioInputStream audioIn = AudioSystem.getAudioInputStream(url)) {
+	        try {
+				clip.open(audioIn);
+			} catch (LineUnavailableException e1) {
+				e1.printStackTrace();
+			}
+	    } catch (IOException | UnsupportedAudioFileException e1) {
+			e1.printStackTrace();
+		}
+
+	    this.addWindowListener(new WindowAdapter() {
+	        @Override
+	        public void windowOpened(WindowEvent e) {
+	            clip.start();
+	        }
+	    });
+	    
 		this.setTitle("Boulder Dash");
 		this.setModel(model);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
