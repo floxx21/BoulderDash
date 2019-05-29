@@ -137,13 +137,34 @@ class ViewPanel extends JPanel implements Observer {
 						map[x][y+1] = 50;
 						map[x][y] = 55;
 					}
+					if(map[x+1][y] == 55){
+						if(map[x+1][y+1] == 55){
+							g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
+							g.drawImage(new Boulder(x*16, y*16).getImg(), x*16+16, y*16+16, null);
+							map[x+1][y+1] = 50;
+							map[x][y] = 55;
+						}
+					}
+					if(map[x-1][y] == 55){
+						if(map[x-1][y+1] == 55){
+							g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
+							g.drawImage(new Boulder(x*16, y*16).getImg(), x*16-16, y*16+16, null);
+							map[x-1][y+1] = 50;
+							map[x][y] = 55;
+						}
+					}
 				}
 				if(map[x][y] == 51){
 					if(map[x][y+1] == 55){
-						g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
-						g.drawImage(new Diamond(x*16, y*16).getImg(), x*16, y*16+16, null);
-						map[x][y+1] = 51;
-						map[x][y] = 55;
+						if(Player.x == x*16 && Player.y == y*16){
+							g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
+							map[x][y] = 55;
+						}else{
+							g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
+							g.drawImage(new Diamond(x*16, y*16).getImg(), x*16, y*16+16, null);
+							map[x][y+1] = 51;
+							map[x][y] = 55;
+						}
 					}
 				}
 			}

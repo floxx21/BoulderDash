@@ -1,7 +1,5 @@
 package contract;
 
-import java.awt.Graphics;
-
 /**
  * The Interface IView.
  *
