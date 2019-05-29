@@ -74,7 +74,6 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-		Player p = new Player(Player.x, Player.y);
 		switch (controllerOrder) {
 			case Map1:
 				this.model.loadHelloWorld("L1");
