@@ -65,6 +65,13 @@ public class Player extends Creature {
 		}
 	}
 	
+	public void setLocation(int x, int y){
+		this.x = x;
+		this.y = y;
+		this.startx = x;
+		this.starty = y;
+	}
+	
 	public int getX() {
 		return x;
 	}

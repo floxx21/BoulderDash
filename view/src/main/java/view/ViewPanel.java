@@ -108,11 +108,9 @@ class ViewPanel extends JPanel implements Observer {
 						graphics.drawImage(new Diamond(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
         		case 52:
-					Player.x = x*16;
-					Player.y = hauteur;
-					Player.startx = x*16;
-					Player.starty = hauteur;
-					graphics.drawImage(new Player(x*16, hauteur).getImg(), Player.x, Player.y, null);
+        				Player p = new Player(x*16, hauteur);
+        				p.setLocation(x*16, hauteur);
+        				graphics.drawImage(new Player(x*16, hauteur).getImg(), Player.x, Player.y, null);
         			break;
         		case 53:
         				graphics.drawImage(new Exit(x*16, hauteur).getImg(), x*16, hauteur, null);
@@ -124,7 +122,7 @@ class ViewPanel extends JPanel implements Observer {
     					graphics.drawImage(new Path(x*16, hauteur).getImg(), x*16, hauteur, null);
     				break;
         		default:
-        			graphics.drawString(String.valueOf(splitMsg[x]), x*16, hauteur);
+        				graphics.drawString(String.valueOf(splitMsg[x]), x*16, hauteur);
         			break;
         		}
         	}
@@ -134,6 +132,7 @@ class ViewPanel extends JPanel implements Observer {
 	}
 	
 	public void displayPlayer(Graphics g) throws IOException{
+		
 		/*
 		 * When the player walks on the ground or a diamond the block is replaced by a path
 		 */
@@ -181,7 +180,7 @@ class ViewPanel extends JPanel implements Observer {
         	viewFrame.printMessage("You win !");
         	System.exit(0);
         }else if ((map[Player.x/16][Player.y/16] == 53) && (Player.score < 10)){
-        	viewFrame.printMessage("You do not have 10 diamonds !");
+        	viewFrame.printMessage("You haven't 10 diamonds !");
         	Player.x = Player.startx;
 	        Player.y = Player.starty;
         }
