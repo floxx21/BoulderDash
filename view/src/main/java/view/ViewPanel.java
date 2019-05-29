@@ -180,7 +180,7 @@ class ViewPanel extends JPanel implements Observer {
 	}
 	
 	public void displayPlayer(Graphics g) throws IOException{
-		
+		/* actions sur les blocs, direction du joueur, déplacements A RECOMMENTER*/
 		/*
 		 * When the player walks on the ground or a diamond the block is replaced by a path
 		 */
