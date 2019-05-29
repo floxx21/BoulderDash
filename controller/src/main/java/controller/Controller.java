@@ -94,33 +94,21 @@ public final class Controller implements IController {
 			case Up:
 				Player.faceplayer = 2;
 				Player.y = Player.y-16;
-				if (Player.y==0) {
-				   	Player.y=16;
-				}
 				this.view.displayPlayer();
 				break;
 			case Down:
 				Player.faceplayer = 1;
 				Player.y = Player.y+16;
-				if (Player.y==304) {
-				  	Player.y=288;
-				}
 				this.view.displayPlayer();
 				break;
 			case Left:
 				Player.faceplayer = 3;
 				Player.x=Player.x-16;
-	            if (Player.x==0) {
-	            	Player.x=16;
-	            }
 	            this.view.displayPlayer();
 				break;
 			case Right:
 				Player.faceplayer = 4;
 				Player.x=Player.x+16;
-	            if (Player.x==304) {
-	            	Player.x=288;
-	            }
 	            this.view.displayPlayer();
 				break;
 			default:

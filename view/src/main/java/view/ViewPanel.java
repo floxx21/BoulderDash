@@ -145,7 +145,7 @@ class ViewPanel extends JPanel implements Observer {
 		 * When the player walks on the ground or a diamond the block is replaced by a path
 		 */
 		
-		if (map[Player.x/16][Player.y/16] == 48 || map[Player.x/16][Player.y/16] == 51) {
+		if ((map[Player.x/16][Player.y/16] == 48) || (map[Player.x/16][Player.y/16] == 51)) {
 			if(Player.x < Player.startx) {
 		        g.drawImage(path, Player.startx, Player.starty, null);
 			}
@@ -166,7 +166,7 @@ class ViewPanel extends JPanel implements Observer {
 		 * When a player walks on a diamond he earns points
 		 */
 		
-        if( map[Player.x/16][Player.y/16] == 51) {
+        if(map[Player.x/16][Player.y/16] == 51) {
         	Player.score ++;
         	viewFrame.setScore();
         }
@@ -175,7 +175,7 @@ class ViewPanel extends JPanel implements Observer {
          * Death of the Player
          */
         
-        if( map[Player.x/16][Player.y/16] == 54) {
+        if(map[Player.x/16][Player.y/16] == 54) {
         	viewFrame.printMessage("You are dead !");
         	System.exit(0);
         }
@@ -193,8 +193,8 @@ class ViewPanel extends JPanel implements Observer {
          * When the player wins
          */
         
-        if (Player.x== 288 && Player.y== 256) {
-        	viewFrame.printMessage("You are win !");
+        if ((map[Player.x/16][Player.y/16] == 53) && (Player.score <= 10)) {
+        	viewFrame.printMessage("You win !");
         	System.exit(0);
         }
         
