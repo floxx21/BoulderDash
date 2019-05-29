@@ -16,6 +16,7 @@ import entity.Diamond;
 import entity.Dirt;
 import entity.Enemy;
 import entity.Exit;
+import entity.Path;
 import entity.Player;
 import entity.Wall;
 
@@ -124,6 +125,9 @@ class ViewPanel extends JPanel implements Observer {
         		case 54:
         				graphics.drawImage(new Enemy(x*16, hauteur).getImg(), x*16, hauteur, null);
         			break;
+        		case 55:
+    					graphics.drawImage(new Path(x*16, hauteur).getImg(), x*16, hauteur, null);
+    				break;
         		default:
         			graphics.drawString(String.valueOf(splitMsg[x]), x*16, hauteur);
         			break;
@@ -145,8 +149,9 @@ class ViewPanel extends JPanel implements Observer {
 		 * When the player walks on the ground or a diamond the block is replaced by a path
 		 */
 		
-		if ((map[Player.x/16][Player.y/16] == 48) || (map[Player.x/16][Player.y/16] == 51)) {
+		if ((map[Player.x/16][Player.y/16] == 48) || (map[Player.x/16][Player.y/16] == 51) || (map[Player.x/16][Player.y/16] == 55)) {
 		    g.drawImage(path, Player.startx, Player.starty, null);
+		    map[Player.startx/16][Player.starty/16] = 55;
 		    Player.startx = Player.x;
 		    Player.starty = Player.y;
 		    g.drawImage(path, Player.startx, Player.starty, null);
@@ -174,7 +179,7 @@ class ViewPanel extends JPanel implements Observer {
          * When a player walks on a wall or a ball he is teleported back
          */
         
-        if (map[Player.x/16][Player.y/16] == 49 || map[Player.x/16][Player.y/16] == 50) {
+        if ((map[Player.x/16][Player.y/16] == 49) || (map[Player.x/16][Player.y/16] == 50)) {
 	        Player.x = Player.startx;
 	        Player.y = Player.starty;
         }
@@ -186,6 +191,10 @@ class ViewPanel extends JPanel implements Observer {
         if ((map[Player.x/16][Player.y/16] == 53) && (Player.score >= 10)) {
         	viewFrame.printMessage("You win !");
         	System.exit(0);
+        }else if ((map[Player.x/16][Player.y/16] == 53) && (Player.score < 10)){
+        	viewFrame.printMessage("You do not have 10 diamonds !");
+        	Player.x = Player.startx;
+	        Player.y = Player.starty;
         }
         
         /*
@@ -206,7 +215,6 @@ class ViewPanel extends JPanel implements Observer {
 			g.drawImage(img4, Player.x, Player.y, null);
 			break;
 		}
-		
 	}
 	
 }
