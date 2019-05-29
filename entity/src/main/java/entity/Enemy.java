@@ -18,7 +18,7 @@ public class Enemy extends Creature{
 private final String IMAGE_PATH="images/monster.png";
 	
 /*
- * instantiate a new entity for the enemies
+ * instantiates a new entity for the enemies
  */
 	public Enemy (final int x, final int y) {
 		this.setX(x);

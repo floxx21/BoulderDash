@@ -17,7 +17,7 @@ public class Dirt extends Entity {
 	private final String IMAGE_PATH="images/dirt.png";
 	
 	/*
-	 * instantiate a new entity for the dirt
+	 * instantiates a new entity for the dirt
 	 */
 	public Dirt (final int x, final int y) {
 		this.setX(x);

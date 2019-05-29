@@ -16,7 +16,7 @@ public class Path extends Entity{
 	private final String IMAGE_PATH="images/path.png";
 	
 	/*
-	 * instantiate a new entity for the Path
+	 * instantiates a new entity for the Path
 	 */
 	public Path (final int x, final int y) {
 		this.setX(x);

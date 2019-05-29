@@ -17,7 +17,7 @@ public class Diamond extends Entity{
 private final String IMAGE_PATH="images/diamond.png";
 	
 /*
- * instantiate a new entity for the dirt
+ * instantiates a new entity for the dirt
  */
 	public Diamond (final int x, final int y) {
 		this.setX(x);

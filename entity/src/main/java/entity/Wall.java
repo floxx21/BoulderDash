@@ -17,7 +17,7 @@ public class Wall extends Entity {
 private final String IMAGE_PATH="images/wall.png";
 	
 /*
- * instantiate a new entity for the walls
+ * instantiates a new entity for the walls
  */
 	public Wall (final int x, final int y) {
 		this.setX(x);
