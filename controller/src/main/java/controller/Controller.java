@@ -74,6 +74,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
+		this.view.rock();
 		switch (controllerOrder) {
 			case Map1:
 				this.model.loadHelloWorld("L1");
@@ -93,25 +94,21 @@ public final class Controller implements IController {
 			case Up:
 				Player.faceplayer = 2;
 				Player.y = Player.y-16;
-				this.view.rock();
 				this.view.displayPlayer();
 				break;
 			case Down:
 				Player.faceplayer = 1;
 				Player.y = Player.y+16;
-				this.view.rock();
 				this.view.displayPlayer();
 				break;
 			case Left:
 				Player.faceplayer = 3;
 				Player.x=Player.x-16;
-				this.view.rock();
 	            this.view.displayPlayer();
 				break;
 			case Right:
 				Player.faceplayer = 4;
 				Player.x=Player.x+16;
-				this.view.rock();
 	            this.view.displayPlayer();
 				break;
 			default:

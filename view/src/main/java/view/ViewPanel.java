@@ -1,14 +1,10 @@
 package view;
 
 import java.awt.Graphics;
-import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import entity.Boulder;
@@ -131,11 +127,24 @@ class ViewPanel extends JPanel implements Observer {
         }  
 	}
 	
-	public void rock(){
+	public void rock(Graphics g){
 		for(int x = 0; x < 20; x++){
 			for(int y = 0; y < 20; y++){
 				if(map[x][y] == 50){
-					
+					if(map[x][y+1] == 55){
+						g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
+						g.drawImage(new Boulder(x*16, y*16).getImg(), x*16, y*16+16, null);
+						map[x][y+1] = 50;
+						map[x][y] = 55;
+					}
+				}
+				if(map[x][y] == 51){
+					if(map[x][y+1] == 55){
+						g.drawImage(new Path(x*16, y*16).getImg(), x*16, y*16, null);
+						g.drawImage(new Diamond(x*16, y*16).getImg(), x*16, y*16+16, null);
+						map[x][y+1] = 51;
+						map[x][y] = 55;
+					}
 				}
 			}
 		}
