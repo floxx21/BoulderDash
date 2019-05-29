@@ -146,20 +146,10 @@ class ViewPanel extends JPanel implements Observer {
 		 */
 		
 		if ((map[Player.x/16][Player.y/16] == 48) || (map[Player.x/16][Player.y/16] == 51)) {
-			if(Player.x < Player.startx) {
-		        g.drawImage(path, Player.startx, Player.starty, null);
-			}
-			if(Player.x > Player.startx) {
-		        g.drawImage(path, Player.startx, Player.starty, null);
-			}
-			if(Player.y < Player.starty) {
-		        g.drawImage(path, Player.startx, Player.starty, null);
-			}
-			if(Player.y > Player.starty) {
-		        g.drawImage(path, Player.startx, Player.starty, null);
-			}
+		    g.drawImage(path, Player.startx, Player.starty, null);
 		    Player.startx = Player.x;
 		    Player.starty = Player.y;
+		    g.drawImage(path, Player.startx, Player.starty, null);
 		}
 		
 		/*
