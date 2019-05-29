@@ -154,7 +154,11 @@ class ViewFrame extends JFrame implements KeyListener {
 	}
 
 	public void setScore(){
-		this.setTitle("Boulder Dash - Score "+Player.score);
+		if(Player.score >= 10){
+			this.setTitle("Boulder Dash - Open door");
+		}else{
+			this.setTitle("Boulder Dash - Score "+Player.score+"/10");
+		}
 	}
 	
 	/*

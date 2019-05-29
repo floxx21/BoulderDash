@@ -183,7 +183,7 @@ class ViewPanel extends JPanel implements Observer {
          * When the player wins
          */
         
-        if ((map[Player.x/16][Player.y/16] == 53) && (Player.score <= 10)) {
+        if ((map[Player.x/16][Player.y/16] == 53) && (Player.score >= 10)) {
         	viewFrame.printMessage("You win !");
         	System.exit(0);
         }
