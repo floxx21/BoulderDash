@@ -1,8 +1,6 @@
 package entity;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -10,10 +8,15 @@ import javax.imageio.ImageIO;
 
 public class Boulder extends Entity {
 
-	
-	private final String IMAGE_PATH="images/rock.png";
-	
-	public Boulder (final int x, final int y) {
+	/*
+	 * Defining a constant for the image path
+	 */
+	private final String IMAGE_PATH = "images/rock.png";
+
+	/*
+	 * Define the coordinates of a stone and set its image
+	 */
+	public Boulder(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
 		InputStream in = getClass().getResourceAsStream(IMAGE_PATH);
@@ -23,13 +26,6 @@ public class Boulder extends Entity {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		/*Image img;
-		try {
-			img = ImageIO.read(new File(IMAGE_PATH));
-			this.setImg(img);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-}
+
+	}
 }

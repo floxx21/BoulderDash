@@ -3,26 +3,25 @@ package contract;
 /**
  * The Enum ControllerOrder.
  *
- * @author Jean-Aymeric Diet
+ * List of possible values for selecting maps and character orientation.
  */
 public enum ControllerOrder {
 
-	/** The English. */
 	Map1,
-	/** The French. */
+
 	Map2,
-	/** The Deutch. */
+
 	Map3,
-	/** The Indonesia. */
+
 	Map4,
-	
+
 	Map5,
-	
+
 	Up,
-	
+
 	Down,
-	
+
 	Left,
-	
+
 	Right
 }

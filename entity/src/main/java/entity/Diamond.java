@@ -1,25 +1,22 @@
 package entity;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-public class Diamond extends Entity{
+public class Diamond extends Entity {
 
-/*
-* defining a constant for the image
-*/
-	
-private final String IMAGE_PATH="images/diamond.png";
-	
-/*
- * instantiates a new entity for the dirt
- */
-	public Diamond (final int x, final int y) {
+	/*
+	 * Defining a constant for the image path
+	 */
+	private final String IMAGE_PATH = "images/diamond.png";
+
+	/*
+	 * Define the coordinates of a diamond and set its image
+	 */
+	public Diamond(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
 		InputStream in = getClass().getResourceAsStream(IMAGE_PATH);
@@ -29,5 +26,5 @@ private final String IMAGE_PATH="images/diamond.png";
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-}
+	}
 }

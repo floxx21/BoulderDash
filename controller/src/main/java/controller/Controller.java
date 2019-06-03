@@ -12,18 +12,18 @@ import entity.Player;
 public final class Controller implements IController {
 
 	/** The view. */
-	private IView		view;
+	private IView view;
 
 	/** The model. */
-	private IModel	model;
+	private IModel model;
 
 	/**
 	 * Instantiates a new controller.
 	 *
 	 * @param view
-	 *          the view
+	 *            the view
 	 * @param model
-	 *          the model
+	 *            the model
 	 */
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
@@ -31,8 +31,8 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Control.
-     */
+	 * Control.
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -43,11 +43,11 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Sets the view.
-     *
-     * @param pview
-     *            the new view
-     */
+	 * Sets the view.
+	 *
+	 * @param pview
+	 *            the new view
+	 */
 	private void setView(final IView pview) {
 		this.view = pview;
 	}
@@ -56,62 +56,68 @@ public final class Controller implements IController {
 	 * Sets the model.
 	 *
 	 * @param model
-	 *          the new model
+	 *            the new model
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
 
 	/**
-     * Order perform.
-     *
-     * @param controllerOrder
-     *            the controller order
-     */
+	 * Order perform.
+	 *
+	 * @param controllerOrder
+	 *            the controller order
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
+		//this.view.rock();
 		switch (controllerOrder) {
-			case Map1:
-				this.model.loadHelloWorld("L1");
-				break;
-			case Map2:
-				this.model.loadHelloWorld("L2");
-				break;
-			case Map3:
-				this.model.loadHelloWorld("L3");
-				break;
-			case Map4:
-				this.model.loadHelloWorld("L4");
-				break;
-			case Map5:
-				this.model.loadHelloWorld("L5");
-				break;
-			case Up:
-				Player.faceplayer = 2;
-				Player.y = Player.y-16;
-				this.view.displayPlayer();
-				break;
-			case Down:
-				Player.faceplayer = 1;
-				Player.y = Player.y+16;
-				this.view.displayPlayer();
-				break;
-			case Left:
-				Player.faceplayer = 3;
-				Player.x=Player.x-16;
-	            this.view.displayPlayer();
-				break;
-			case Right:
-				Player.faceplayer = 4;
-				Player.x=Player.x+16;
-	            this.view.displayPlayer();
-				break;
-			default:
-				break;
+		case Map1:
+			this.model.loadHelloWorld("L1");
+			break;
+		case Map2:
+			this.model.loadHelloWorld("L2");
+			break;
+		case Map3:
+			this.model.loadHelloWorld("L3");
+			break;
+		case Map4:
+			this.model.loadHelloWorld("L4");
+			break;
+		case Map5:
+			this.model.loadHelloWorld("L5");
+			break;
+		case Up:
+			Player.faceplayer = 2;
+			Player.y = Player.y - 16;
+			this.view.displayPlayer();
+			//this.view.rock();
+			break;
+		case Down:
+			Player.faceplayer = 1;
+			Player.y = Player.y + 16;
+			this.view.displayPlayer();
+			//this.view.rock();
+			break;
+		case Left:
+			Player.faceplayer = 3;
+			Player.x = Player.x - 16;
+			this.view.displayPlayer();
+			//this.view.rock();
+			break;
+		case Right:
+			Player.faceplayer = 4;
+			Player.x = Player.x + 16;
+			this.view.displayPlayer();
+			//this.view.rock();
+			break;
+		default:
+			break;
 		}
 	}
+	
 }

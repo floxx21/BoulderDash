@@ -7,19 +7,18 @@ import entity.HelloWorld;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
  */
 public interface IModel {
 
 	/**
-	 * Gets the hello world.
+	 * Gets the map.
 	 *
-	 * @return the helloworld entity
+	 * @return the map entity
 	 */
 	HelloWorld getHelloWorld();
 
 	/**
-	 * Load the message.
+	 * Load the map.
 	 *
 	 * @param code
 	 *          the code

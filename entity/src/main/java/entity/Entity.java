@@ -1,13 +1,12 @@
 package entity;
 
-
 import java.awt.Image;
 
 public abstract class Entity {
-	
-	private int x, y ;
+
+	private int x, y;
 	private Image img;
-	
+
 	public int getX() {
 		return x;
 	}
@@ -31,5 +30,5 @@ public abstract class Entity {
 	public void setImg(Image img) {
 		this.img = img;
 	}
-	
+
 }
