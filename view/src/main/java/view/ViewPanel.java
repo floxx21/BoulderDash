@@ -179,6 +179,35 @@ class ViewPanel extends JPanel implements Observer {
 						}
 					}
 				}
+				/*else if (map[x][y] == 54) {
+				if((map[x][y + 1] == 55) && (map[x][y-1] != 55) && (map[x+1][y] != 55) && (map[x - 1][y] != 55)){
+					g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
+					g.drawImage(new Enemy(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
+					map[x][y + 1] = 54;
+					map[x][y] = 55;
+				}else if((map[x][y-1] == 55) && (map[x][y+1] != 55) && (map[x+1][y] != 55) && (map[x - 1][y] != 55)){
+					g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
+					g.drawImage(new Enemy(x * 16, y * 16).getImg(), x * 16, y * 16 - 16, null);
+					map[x][y - 1] = 54;
+					map[x][y] = 55;
+				}else if((map[x+1][y] == 55) && (map[x - 1][y] != 55) && (map[x][y + 1] != 55) && (map[x][y-1] != 55)){
+					g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
+					g.drawImage(new Enemy(x * 16, y * 16).getImg(), x * 16 + 16, y * 16, null);
+					map[x + 1][y] = 54;
+					map[x][y] = 55;
+				}else if((map[x-1][y] == 55) && (map[x + 1][y] != 55) && (map[x][y + 1] != 55) && (map[x][y-1] != 55)){
+					g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
+					g.drawImage(new Enemy(x * 16, y * 16).getImg(), x * 16 - 16, y * 16, null);
+					map[x - 1][y] = 54;
+					map[x][y] = 55;
+				}else if((map[x][y + 1] == 55) || (map[x][y-1] == 55) || (map[x+1][y] == 55) || (map[x - 1][y] == 55)){
+					System.out.println("Ok55");
+					g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
+					g.drawImage(new Enemy(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
+					map[x][y + 1] = 54;
+					map[x][y] = 55;
+				}
+			}*/
 			}
 		}
 	}
