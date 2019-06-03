@@ -11,14 +11,14 @@ import entity.HelloWorld;
 public interface IModel {
 
 	/**
-	 * Gets the hello world.
+	 * Gets the map.
 	 *
-	 * @return the helloworld entity
+	 * @return the map entity
 	 */
 	HelloWorld getHelloWorld();
 
 	/**
-	 * Load the message.
+	 * Load the map.
 	 *
 	 * @param code
 	 *          the code
