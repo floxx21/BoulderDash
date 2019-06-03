@@ -28,7 +28,7 @@ import entity.Player;
  */
 class ViewFrame extends JFrame implements KeyListener {
 
-	public static Clip clip = null;
+	private Clip clip = null;
 	
 	/** The model. */
 	private IModel						model;

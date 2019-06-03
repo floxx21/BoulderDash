@@ -27,7 +27,7 @@ public abstract class Main{
         view.setController(controller);
         view.startThread();
         controller.control();
-        controller.orderPerform(ControllerOrder.Map5);
+        controller.orderPerform(ControllerOrder.Map1);
         
     }
     
