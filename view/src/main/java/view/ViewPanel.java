@@ -165,9 +165,9 @@ class ViewPanel extends JPanel implements Observer {
 							map[x][y + 1] = 50;
 							map[x][y] = 55;
 							
-							/*
-							 * If the block on the right is empty and the block on the left is not
-							 */
+						/*
+						 * If the block on the right is empty and the block on the left is not
+						 */
 					} else if ((map[x + 1][y] == 55 && map[x - 1][y] != 55)) {
 						
 						/*
