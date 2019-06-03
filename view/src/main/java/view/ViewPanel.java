@@ -222,7 +222,7 @@ class ViewPanel extends JPanel implements Observer {
 	}*/
 	
 	private void win(){
-		viewFrame.printMessage("You win !");
+		viewFrame.printMessage("You win ! \n With "+Player.score+" points !");
 		System.exit(0);
 	}
 	
