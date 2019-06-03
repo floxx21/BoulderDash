@@ -24,11 +24,10 @@ import entity.Player;
 /**
  * The Class ViewFrame.
  *
- * @author Jean-Aymeric Diet
  */
 class ViewFrame extends JFrame implements KeyListener {
 
-	public static Clip clip = null;
+	private Clip clip = null;
 	
 	/** The model. */
 	private IModel						model;
@@ -142,10 +141,10 @@ class ViewFrame extends JFrame implements KeyListener {
 	private void buildViewFrame(final IModel model) {
 		
 		/**
-		 * Launch of music
+		 * Launch music
 		 */
 		
-		URL url = getClass().getResource("boulder.wav");
+		URL url = getClass().getResource("music/boulder.wav");
 		try {
 			clip = AudioSystem.getClip();
 		} catch (LineUnavailableException e1) {

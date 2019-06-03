@@ -16,7 +16,6 @@ import contract.IView;
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
  */
 public final class View implements IView, Runnable {
 
@@ -27,22 +26,22 @@ public final class View implements IView, Runnable {
 	 * Instantiates a new view.
 	 *
 	 * @param model
-	 *          the model
+	 *            the model
 	 */
 	@Override
-	public void displayPlayer(){
-        try {
-            ((ViewPanel) this.viewFrame.getContentPane()).displayPlayer(this.viewFrame.getContentPane().getGraphics());
-        } catch (IOException e) {
-            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-	
+	public void displayPlayer() {
+		try {
+			((ViewPanel) this.viewFrame.getContentPane()).displayPlayer(this.viewFrame.getContentPane().getGraphics());
+		} catch (IOException e) {
+			Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, e);
+		}
+	}
+
 	@Override
-	public void rock(){
-        ((ViewPanel) this.viewFrame.getContentPane()).rock(this.viewFrame.getContentPane().getGraphics());
-    }
-	
+	public void rock() {
+		((ViewPanel) this.viewFrame.getContentPane()).rock(this.viewFrame.getContentPane().getGraphics());
+	}
+
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
@@ -52,21 +51,21 @@ public final class View implements IView, Runnable {
 	 * Key code to controller order.
 	 *
 	 * @param keyCode
-	 *          the key code
+	 *            the key code
 	 * @return the controller order
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_UP:
-				return ControllerOrder.Up;
-			case KeyEvent.VK_DOWN:
-				return ControllerOrder.Down;
-			case KeyEvent.VK_LEFT:
-				return ControllerOrder.Left;
-			case KeyEvent.VK_RIGHT:
-				return ControllerOrder.Right;
-			default:
-				return null;
+		case KeyEvent.VK_UP:
+			return ControllerOrder.Up;
+		case KeyEvent.VK_DOWN:
+			return ControllerOrder.Down;
+		case KeyEvent.VK_LEFT:
+			return ControllerOrder.Left;
+		case KeyEvent.VK_RIGHT:
+			return ControllerOrder.Right;
+		default:
+			return null;
 		}
 	}
 
@@ -92,35 +91,36 @@ public final class View implements IView, Runnable {
 	 * Sets the controller.
 	 *
 	 * @param controller
-	 *          the new controller
+	 *            the new controller
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
-	
+
 	@Override
 	public void startThread() {
 		int isActive = 0;
-		if(isActive != 1) {
-	    	Thread t = new Thread(new threadview());
-	        t.start();
-	        isActive = 1;
-	        
-	    }
+		if (isActive != 1) {
+			Thread t = new Thread(new threadview());
+			t.start();
+			isActive = 1;
+
+		}
 	}
-	public class threadview implements Runnable{
-    	@Override
-    	public void run(){     
-    		int i = 1 ;
-    		while(i>0) {
-    	      rock();
-	    		try {	
-	    			TimeUnit.MILLISECONDS.sleep(700);
-	    		} catch (InterruptedException e) {
-	    			e.printStackTrace();
-	    		}
-    		}
-    	}
-	} 
-	
+
+	public class threadview implements Runnable {
+		@Override
+		public void run() {
+			int i = 1;
+			while (i > 0) {
+				rock();
+				try {
+					TimeUnit.MILLISECONDS.sleep(700);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 }

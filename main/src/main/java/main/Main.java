@@ -20,7 +20,6 @@ public abstract class Main{
      * @param args
      *            the arguments
      */
-	
     public static void main(final String[] args) {
         final Model model = new Model();
         final View view = new View(model);
@@ -28,7 +27,7 @@ public abstract class Main{
         view.setController(controller);
         view.startThread();
         controller.control();
-        controller.orderPerform(ControllerOrder.Map5);
+        controller.orderPerform(ControllerOrder.Map1);
         
     }
     
