@@ -8,24 +8,24 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 
 public class Player extends Creature {
-	
+
 	public static int startx, x;
 	public static int starty, y;
 	public static int faceplayer = 1;
 	public static int score = 0;
-	
+
 	private Image image;
-	
-	private final String IMAGE_PATH_UP="images/up.png";
-	private final String IMAGE_PATH_DOWN="images/down.png";
-	private final String IMAGE_PATH_RIGHT="images/right.png";
-	private final String IMAGE_PATH_LEFT="images/left.png";
-	
-	public Player(final int x, final int y){
+
+	private final String IMAGE_PATH_UP = "images/up.png";
+	private final String IMAGE_PATH_DOWN = "images/down.png";
+	private final String IMAGE_PATH_RIGHT = "images/right.png";
+	private final String IMAGE_PATH_LEFT = "images/left.png";
+
+	public Player(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
-		
-		switch(Player.faceplayer){
+
+		switch (Player.faceplayer) {
 		case 1:
 			InputStream in = getClass().getResourceAsStream(IMAGE_PATH_DOWN);
 			try {
@@ -64,14 +64,14 @@ public class Player extends Creature {
 			break;
 		}
 	}
-	
-	public void setLocation(int x, int y){
+
+	public void setLocation(int x, int y) {
 		this.x = x;
 		this.y = y;
 		this.startx = x;
 		this.starty = y;
 	}
-	
+
 	public int getX() {
 		return x;
 	}
@@ -87,11 +87,11 @@ public class Player extends Creature {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
+
 	public Image getImg() {
 		return image;
 	}
-	
+
 	public void setImg(Image img) {
 		this.image = img;
 	}
