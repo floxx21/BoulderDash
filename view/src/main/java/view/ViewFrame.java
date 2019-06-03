@@ -24,7 +24,6 @@ import entity.Player;
 /**
  * The Class ViewFrame.
  *
- * @author Jean-Aymeric Diet
  */
 class ViewFrame extends JFrame implements KeyListener {
 
@@ -142,7 +141,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	private void buildViewFrame(final IModel model) {
 		
 		/**
-		 * Launch of music
+		 * Launch music
 		 */
 		
 		URL url = getClass().getResource("music/boulder.wav");

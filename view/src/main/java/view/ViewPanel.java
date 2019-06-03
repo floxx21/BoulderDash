@@ -149,15 +149,17 @@ class ViewPanel extends JPanel implements Observer {
 				if (map[x][y] == 50) {
 					
 					/*
-					 * If the block under the stone is empty or if there is the player or an enemy,
-					 * the stone moves underneath and the block where it was becomes empty
+					 * If the player is on this block, he dies
 					 */
 					if(x*16 == Player.x && y*16+16 == Player.y){
 						dead();
 						g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 						g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
 						
-						
+						/*
+						 * If the block under the stone is empty or if there is an enemy,
+						 * the stone moves underneath and the block where it was becomes empty
+						 */
 					} else if (map[x][y + 1] == 55 || map[x][y + 1] == 54) {
 						
 							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
