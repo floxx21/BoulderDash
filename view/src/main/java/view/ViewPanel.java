@@ -138,7 +138,7 @@ class ViewPanel extends JPanel implements Observer {
 		for (int x = 0; x < 20; x++) {
 			for (int y = 0; y < 20; y++) {
 				if (map[x][y] == 50) {
-					if (map[x][y + 1] == 55 || map[x][y + 1] == 52) {
+					if (map[x][y + 1] == 55 || map[x][y + 1] == 52 || map[x][y + 1] == 54) {
 						g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 						g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
 						map[x][y + 1] = 50;
