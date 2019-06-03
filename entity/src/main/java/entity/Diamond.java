@@ -11,13 +11,11 @@ public class Diamond extends Entity {
 	/*
 	 * Defining a constant for the image path
 	 */
-
 	private final String IMAGE_PATH = "images/diamond.png";
 
 	/*
 	 * Define the coordinates of a diamond and set its image
 	 */
-
 	public Diamond(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);

@@ -11,13 +11,11 @@ public class Wall extends Entity {
 	/*
 	 * Defining a constant for the image path
 	 */
-
 	private final String IMAGE_PATH = "images/wall.png";
 
 	/*
 	 * Define the coordinates of a wall and set its image
 	 */
-
 	public Wall(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);

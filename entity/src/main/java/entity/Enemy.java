@@ -11,13 +11,11 @@ public class Enemy extends Creature {
 	/*
 	 * Defining a constant for the image path
 	 */
-
 	private final String IMAGE_PATH = "images/monster.png";
 
 	/*
 	 * Define the coordinates of an enemy and set its image
 	 */
-
 	public Enemy(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);

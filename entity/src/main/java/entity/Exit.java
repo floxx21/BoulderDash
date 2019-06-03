@@ -11,13 +11,11 @@ public class Exit extends Entity {
 	/*
 	 * Defining a constant for the image path
 	 */
-
 	private final String IMAGE_PATH = "images/exit.png";
 
 	/*
 	 * Define the coordinates of the exit and set its image
 	 */
-
 	public Exit(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);

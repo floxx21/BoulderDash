@@ -14,23 +14,27 @@ public class Player extends Creature {
 	 * orientation and score
 	 * 
 	 */
-
 	public static int startx, x;
 	public static int starty, y;
 	public static int faceplayer = 1;
 	public static int score = 0;
 
+	/*
+	 * instantiates the variable image
+	 */
 	private Image image;
 
 	/*
 	 * Defining constants for images paths
 	 */
-
 	private final String IMAGE_PATH_UP = "images/up.png";
 	private final String IMAGE_PATH_DOWN = "images/down.png";
 	private final String IMAGE_PATH_RIGHT = "images/right.png";
 	private final String IMAGE_PATH_LEFT = "images/left.png";
 
+	/*
+	 * Define the coordinates of the player and set its image according to its orientation
+	 */
 	public Player(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
@@ -78,7 +82,6 @@ public class Player extends Creature {
 	/*
 	 * Define default coordinates of the player
 	 */
-
 	public void setLocation(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -91,7 +94,6 @@ public class Player extends Creature {
 	 *
 	 * @return the x-axis
 	 */
-
 	public int getX() {
 		return x;
 	}
@@ -101,7 +103,6 @@ public class Player extends Creature {
 	 *
 	 * @param id the new x-axis
 	 */
-
 	public void setX(int x) {
 		this.x = x;
 	}
@@ -111,7 +112,6 @@ public class Player extends Creature {
 	 *
 	 * @return the y-axis
 	 */
-
 	public int getY() {
 		return y;
 	}
@@ -121,7 +121,6 @@ public class Player extends Creature {
 	 *
 	 * @param id the new y-axis
 	 */
-
 	public void setY(int y) {
 		this.y = y;
 	}
@@ -131,7 +130,6 @@ public class Player extends Creature {
 	 *
 	 * @return the image
 	 */
-
 	public Image getImg() {
 		return image;
 	}
@@ -141,7 +139,6 @@ public class Player extends Creature {
 	 *
 	 * @param id the new image
 	 */
-
 	public void setImg(Image img) {
 		this.image = img;
 	}

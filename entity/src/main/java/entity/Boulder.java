@@ -11,13 +11,11 @@ public class Boulder extends Entity {
 	/*
 	 * Defining a constant for the image path
 	 */
-
 	private final String IMAGE_PATH = "images/rock.png";
 
 	/*
 	 * Define the coordinates of a stone and set its image
 	 */
-
 	public Boulder(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
