@@ -145,7 +145,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		 * Launch of music
 		 */
 		
-		URL url = getClass().getResource("boulder.wav");
+		URL url = getClass().getResource("music/boulder.wav");
 		try {
 			clip = AudioSystem.getClip();
 		} catch (LineUnavailableException e1) {
