@@ -22,13 +22,8 @@ import entity.Wall;
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
  */
 class ViewPanel extends JPanel implements Observer {
-
-	/*
-	 * public static int X; public static int Y;
-	 */
 
 	/** The view frame. */
 	private ViewFrame viewFrame;
@@ -43,7 +38,6 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *            the view frame
 	 */
-
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
@@ -212,31 +206,35 @@ class ViewPanel extends JPanel implements Observer {
 		}
 	}
 	
-	/*public void task(){
-	ScheduledExecutorService ses = Executors.newScheduledThreadPool(3);
-    ses.scheduleAtFixedRate(() -> {
-		
-		rock(null);
-		
-	}, 0, 1, TimeUnit.SECONDS);
-	}*/
-	
+	/*
+	 * Function win
+	 * 
+	 * @exit the program
+	 */
 	private void win(){
 		viewFrame.printMessage("You win ! \n With "+Player.score+" points !");
 		System.exit(0);
 	}
 	
+	/*
+	 * Function dead
+	 * 
+	 * @exit the program
+	 */
 	private void dead(){
 		viewFrame.printMessage("You are dead !");
 		System.exit(0);
 	}
 	
+	/*
+	 * Function for the player's movements
+	 */
 	public void displayPlayer(Graphics g) throws IOException {
+		
 		/*
-		 * When the player walks on the ground or a diamond the block is
+		 * When the player walks on dirt or on a diamond the block is
 		 * replaced by a path
 		 */
-
 		if ((map[Player.x / 16][Player.y / 16] == 48) || (map[Player.x / 16][Player.y / 16] == 51) || (map[Player.x / 16][Player.y / 16] == 55)) {
 			g.drawImage(new Path(Player.startx * 16, Player.starty).getImg(), Player.startx, Player.starty, null);
 			map[Player.startx / 16][Player.starty / 16] = 55;
@@ -255,7 +253,7 @@ class ViewPanel extends JPanel implements Observer {
 		}
 
 		/*
-		 * Death of the Player
+		 * Player's death
 		 */
 
 		if (map[Player.x / 16][Player.y / 16] == 54) {
@@ -263,7 +261,7 @@ class ViewPanel extends JPanel implements Observer {
 		}
 
 		/*
-		 * When a player walks on a wall or a ball he is teleported back
+		 * When a player walks on a wall or a stone he is teleported back
 		 */
 
 		if ((map[Player.x / 16][Player.y / 16] == 49) || (map[Player.x / 16][Player.y / 16] == 50)) {
@@ -272,9 +270,8 @@ class ViewPanel extends JPanel implements Observer {
 		}
 
 		/*
-		 * When the player wins
+		 * When the player arrives at the exit
 		 */
-
 		if ((map[Player.x / 16][Player.y / 16] == 53) && (Player.score >= 10)) {
 			win();
 		} else if ((map[Player.x / 16][Player.y / 16] == 53) && (Player.score < 10)) {
@@ -284,9 +281,8 @@ class ViewPanel extends JPanel implements Observer {
 		}
 
 		/*
-		 * View player's image
+		 * Displays the player's sprite according to its orientation
 		 */
-		
 		g.drawImage(new Player(Player.x, Player.y).getImg(), Player.x, Player.y, null);
 	}
 
