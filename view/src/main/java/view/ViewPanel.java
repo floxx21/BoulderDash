@@ -4,9 +4,6 @@ import java.awt.Graphics;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.JPanel;
 
@@ -79,10 +76,25 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 
+		/*
+		 * Retrieves the map from the database
+		 */
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		String[] message = this.getViewFrame().getModel().getHelloWorld().getMessage().split(";");
+		
+		/*
+		 * Defines the basic value of the image height
+		 */
 		int hauteur = 0;
+		
+		/*
+		 * Define the value of the default y-axis
+		 */
 		int y = 0;
+		
+		/*
+		 * Displays the map graphically from the digital map of the database
+		 */
 		for (String msg : message) {
 			char[] splitMsg = msg.toCharArray();
 			for (int x = 0; x < splitMsg.length; x++) {
@@ -125,39 +137,75 @@ class ViewPanel extends JPanel implements Observer {
 	}
 
 	/*
-	 * 
-	 * */
-
+	 * Stones movements management
+	 */
 	public void rock(Graphics g) {
 		for (int x = 0; x < 20; x++) {
 			for (int y = 0; y < 20; y++) {
+				
+				/*
+				 * If the block is a stone
+				 */
 				if (map[x][y] == 50) {
+					
+					/*
+					 * If the block under the stone is empty or if there is the player or an enemy,
+					 * the stone moves underneath and the block where it was becomes empty
+					 */
 					if(x*16 == Player.x && y*16+16 == Player.y){
 						dead();
 						g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 						g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
+						
+						
 					} else if (map[x][y + 1] == 55 || map[x][y + 1] == 54) {
 						
 							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 							g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
 							map[x][y + 1] = 50;
 							map[x][y] = 55;
-						
+							
+							/*
+							 * If the block on the right is empty and the block on the left is not
+							 */
 					} else if ((map[x + 1][y] == 55 && map[x - 1][y] != 55)) {
+						
+						/*
+						 * If the block under the stone on the right is empty,
+						 * the stone moves underneath to the right and the block where it was becomes empty
+						 */
 						if (map[x + 1][y + 1] == 55) {
 							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 							g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16 + 16, y * 16 + 16, null);
 							map[x + 1][y + 1] = 50;
 							map[x][y] = 55;
 						}
+						
+						/*
+						 * If the block on the left is empty and the block on the right is not
+						 */
 					} else if (map[x - 1][y] == 55 && map[x + 1][y] != 55) {
+						
+						/*
+						 * If the block under the stone on the left is empty,
+						 * the stone moves underneath to the left and the block where it was becomes empty
+						 */
 						if (map[x - 1][y + 1] == 55) {
 							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 							g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16 - 16, y * 16 + 16, null);
 							map[x - 1][y + 1] = 50;
 							map[x][y] = 55;
 						}
+						
+						/*
+						 * If blocks on the right and on the left are empty
+						 */
 					} else if (map[x + 1][y] == 55 && map[x - 1][y] == 55) {
+						
+						/*
+						 * If the block under the stone on the right is empty,
+						 * the stone moves underneath to the right and the block where it was becomes empty
+						 */
 						if (map[x + 1][y + 1] == 55) {
 							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 							g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16 + 16, y * 16 + 16, null);
@@ -166,11 +214,28 @@ class ViewPanel extends JPanel implements Observer {
 						}
 					}
 				}
+				
+				/*
+				 * If the block is a diamond
+				 */
 				if (map[x][y] == 51) {
+					
+					/*
+					 * If the block below is empty
+					 */
 					if (map[x][y + 1] == 55) {
+						
+						/*
+						 * If the player is on the diamond,
+						 * it disappears and the block becomes empty after the player passes by.
+						 */
 						if (Player.x == x * 16 && Player.y == y * 16) {
 							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 							map[x][y] = 55;
+							
+							/*
+							 * Otherwise, the diamond moves underneath and the block where it was becomes empty
+							 */
 						} else {
 							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 							g.drawImage(new Diamond(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
