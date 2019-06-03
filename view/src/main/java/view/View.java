@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -96,4 +97,30 @@ public final class View implements IView, Runnable {
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
+	
+	@Override
+	public void startThread() {
+		int isActive = 0;
+		if(isActive != 1) {
+	    	Thread t = new Thread(new threadview());
+	        t.start();
+	        isActive = 1;
+	        
+	    }
+	}
+	public class threadview implements Runnable{
+    	@Override
+    	public void run(){     
+    		int i = 1 ;
+    		while(i>0) {
+    	      rock();
+	    		try {	
+	    			TimeUnit.MILLISECONDS.sleep(700);
+	    		} catch (InterruptedException e) {
+	    			e.printStackTrace();
+	    		}
+    		}
+    	}
+	} 
+	
 }

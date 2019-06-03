@@ -26,7 +26,7 @@ public abstract class Main{
         final View view = new View(model);
         final Controller controller = new Controller(view, model);
         view.setController(controller);
-
+        view.startThread();
         controller.control();
         controller.orderPerform(ControllerOrder.Map5);
         

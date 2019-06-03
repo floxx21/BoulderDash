@@ -132,11 +132,17 @@ class ViewPanel extends JPanel implements Observer {
 		for (int x = 0; x < 20; x++) {
 			for (int y = 0; y < 20; y++) {
 				if (map[x][y] == 50) {
-					if (map[x][y + 1] == 55 || map[x][y + 1] == 52 || map[x][y + 1] == 54) {
+					if(x*16 == Player.x && y*16+16 == Player.y){
+						dead();
 						g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
 						g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
-						map[x][y + 1] = 50;
-						map[x][y] = 55;
+					} else if (map[x][y + 1] == 55 || map[x][y + 1] == 54) {
+						
+							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
+							g.drawImage(new Boulder(x * 16, y * 16).getImg(), x * 16, y * 16 + 16, null);
+							map[x][y + 1] = 50;
+							map[x][y] = 55;
+						
 					} else if ((map[x + 1][y] == 55 && map[x - 1][y] != 55)) {
 						if (map[x + 1][y + 1] == 55) {
 							g.drawImage(new Path(x * 16, y * 16).getImg(), x * 16, y * 16, null);
@@ -236,11 +242,12 @@ class ViewPanel extends JPanel implements Observer {
 		 * replaced by a path
 		 */
 		if ((map[Player.x / 16][Player.y / 16] == 48) || (map[Player.x / 16][Player.y / 16] == 51) || (map[Player.x / 16][Player.y / 16] == 55)) {
-			g.drawImage(new Path(Player.startx * 16, Player.starty).getImg(), Player.startx, Player.starty, null);
+			g.drawImage(new Path(Player.startx, Player.starty).getImg(), Player.startx, Player.starty, null);
 			map[Player.startx / 16][Player.starty / 16] = 55;
+			//map[Player.x / 16][Player.y / 16] = 52;
 			Player.startx = Player.x;
 			Player.starty = Player.y;
-			g.drawImage(new Path(Player.startx * 16, Player.starty).getImg(), Player.startx, Player.starty, null);
+			g.drawImage(new Path(Player.startx, Player.starty).getImg(), Player.startx, Player.starty, null);
 		}
 
 		/*
@@ -255,7 +262,7 @@ class ViewPanel extends JPanel implements Observer {
 		/*
 		 * Player's death
 		 */
-
+		
 		if (map[Player.x / 16][Player.y / 16] == 54) {
 			dead();
 		}

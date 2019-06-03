@@ -17,4 +17,6 @@ public interface IView {
 	public void displayPlayer();
 
 	void rock();
+
+	void startThread();
 }
